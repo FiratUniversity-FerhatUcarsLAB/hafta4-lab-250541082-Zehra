@@ -3,6 +3,7 @@
 *Öğrenci No: 250541082
 *Tarih:04.11.2025
 *Açıklama:Öğrenci Bilgi Sistemi
+*İlk başta idea programımda bir hata çıktı yazdırma işlemini yapamadım gemini yardımı ile hatayı düzelttik ve ödevimi tamamladım.
 */
 
 
