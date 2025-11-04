@@ -3,6 +3,7 @@
 *Öğrenci No: 250541082
 *Tarih:04.11.2025
 *Açıklama:Geometrik Hesap
+*Yaptığım hataları gemini ile düzelttim.
 */
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
