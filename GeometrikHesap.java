@@ -1,58 +1,44 @@
-import java.util.Scanner;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
-public class GeometrikHesap {
-  Zehra ÖZDEMİR 250541082
-  27.10.2025
-  GEOMETRİK HESAPLAMA SİSTEMİ
+public class GeometrikHesap { // İstenen Sınıf Adı
+
+    // Görev 2: Önemli Noktalar'a göre PI sabiti
+    private static final double PI = 3.14159;
+
+    // Yarıçapı 5.0 olarak sabitliyoruz. Artık klavye girdisine gerek yok.
+    private static final double YARICAP = 5.0;
+
     public static void main(String[] args) {
-        // Scanner sınıfını kullanıcıdan veri almak için başlatıyoruz.
-        Scanner scanner = new Scanner(System.in);
 
-        // Sabit Pi (π) değerini tanımlıyoruz. Genellikle daha hassas bir değer kullanılır.
-        // Örnek çıktınıza yakın sonuçlar elde etmek için 3.14159265359 kullanabiliriz.
-        final double PI = Math.PI; // Java'daki Math.PI daha hassas bir değer sunar.
+        // Çıktıyı 2 ondalık basamağa ayarlamak için format (Ödev kuralı)
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat df = new DecimalFormat("0.00", symbols);
 
-        // Başlık
-        System.out.println("=== GEOMETRIK HESAPLAYICI ===");
-
-        // Kullanıcıdan yarıçapı girmesini istiyoruz.
-        System.out.print("Dairenin yaricapini girin (cm):5.0 ");
-
-        // Yarıçap değerini okuyoruz.
-        double r =5.0;
+        System.out.println("--- GEOMETRIK HESAPLAYICI ---");
+        System.out.println("Dairenin yaricapi girin (cm): " + YARICAP);
 
         // Hesaplamalar
+        double daireAlani = PI * YARICAP * YARICAP;
+        double daireCevresi = 2 * PI * YARICAP;
+        double daireCapi = 2 * YARICAP;
 
-        // Daire Alanı: π * r²
-        double daireAlani = PI * 5.0 * 5.0;
+        // Küre Hacmi: (4/3) için 4.0 / 3.0 kullanıldı (Integer Division hatasını önlemek için)
+        double kureHacmi = (4.0 / 3.0) * PI * Math.pow(YARICAP, 3);
+        double kureYuzeyAlani = 4 * PI * Math.pow(YARICAP, 2);
 
-        // Daire Çevresi: 2 * π * r
-        double daireCevresi = 2 * PI * 5.0;
-
-        // Daire Çapı: 2 * r
-        double daireCapi = 2 * 5.0;
-
-        // Küre Hacmi: (4/3) * π * r³
-        // 4.0 / 3.0 kullanımı, ondalıklı bölme yapılmasını sağlar.
-        double kureHacmi = (4.0 / 3.0) * PI * Math.pow(r, 3);
-
-        // Küre Yüzey Alanı: 4 * π * r²
-        double kureYuzeyAlani = 4 * PI * 5.0* 5.0;
-
-        // Sonuçları Örnek Çıktı formatına uygun şekilde yazdırıyoruz.
+        // SONUÇLAR
         System.out.println("\nSONUCLAR:");
         System.out.println("----------");
 
-        // Sonuçları iki ondalık basamak hassasiyetle formatlıyoruz.
-        // printf kullanılarak formatlama yapılır. %.2f iki ondalık basamak demektir.
+        // Düzenli Hizalama için format
+        String format = "%-18s : %s %s";
 
-        System.out.printf("Daire Alani      : %.2f cm^2\n", daireAlani);
-        System.out.printf("Daire Cevresi    : %.2f cm\n", daireCevresi);
-        System.out.printf("Daire Capi       : %.2f cm\n", daireCapi);
-        System.out.printf("Kure Hacmi       : %.2f cm^3\n", kureHacmi);
-        System.out.printf("Kure Yuzey Alani : %.2f cm^2\n", kureYuzeyAlani);
-
-        // Scanner nesnesini kapatmayı unutmuyoruz.
-        scanner.close();
+        System.out.println(String.format(format, "Daire Alani", df.format(daireAlani), "cm^2"));
+        System.out.println(String.format(format, "Daire Cevresi", df.format(daireCevresi), "cm"));
+        System.out.println(String.format(format, "Daire Capi", df.format(daireCapi), "cm"));
+        System.out.println(String.format(format, "Kure Hacmi", df.format(kureHacmi), "cm^3"));
+        System.out.println(String.format(format, "Kure Yuzey Alani", df.format(kureYuzeyAlani), "cm^2"));
     }
 }
