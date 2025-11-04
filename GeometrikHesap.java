@@ -1,3 +1,9 @@
+ /*
+*Öğrenci Adı-Soyadı: Zehra ÖZDEMİR 
+*Öğrenci No: 250541082
+*Tarih:04.11.2025
+*Açıklama:Geometrik Hesap
+*/
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
